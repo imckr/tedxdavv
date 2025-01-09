@@ -46,11 +46,8 @@ const StickyScroll = ({ content }) => {
     }, []);
 
     useEffect(() => {
-        gsap.fromTo(
+        gsap.to(
             "#fgif",
-            {
-                opacity: 0,
-            },
             {
                 opacity: 1,
                 duration: 3,
@@ -157,7 +154,7 @@ const StickyScroll = ({ content }) => {
                                 <div className="trigger absolute z-50 w-3 h-1"></div>
                                 <div
                                     id="fgif"
-                                    className="flex flex-col items-center py-24"
+                                    className="flex flex-col items-center py-24 opacity-0"
                                 >
                                     <div className="topBGif"></div>
                                     <img
@@ -173,23 +170,24 @@ const StickyScroll = ({ content }) => {
                                             {
                                                 // content[selectedQuestionIndex]
                                                 // .description
-
                                             }
-                                                <TypeAnimation
-                                                    key={selectedQuestionIndex}
-                                                    sequence={[content[selectedQuestionIndex].description]}
-                                                    wrapper="span"
-                                                    speed={80}
-                                                    style={{
-                                                        whiteSpace: "pre-line",
-                                                        display: "inline-block",
-                                                        textAlign: "justify",
-                                                    }}
-                                                    repeat={0}
-                                                    cursor={false}
-                                                />
-                                                
-                                            
+                                            <TypeAnimation
+                                                key={selectedQuestionIndex}
+                                                sequence={[
+                                                    content[
+                                                        selectedQuestionIndex
+                                                    ].description,
+                                                ]}
+                                                wrapper="span"
+                                                speed={80}
+                                                style={{
+                                                    whiteSpace: "pre-line",
+                                                    display: "inline-block",
+                                                    textAlign: "justify",
+                                                }}
+                                                repeat={0}
+                                                cursor={false}
+                                            />
                                         </h3>
                                     )}
                                 </div>
